@@ -9,7 +9,7 @@
    Estilos para la página de inicio de sesión
    =============================== */
 .admin-login-page {
-  background: linear-gradient(135deg, #fcf635 0%, #2d5016 100%);
+  background: linear-gradient(to right, var(--verde-claro), var(--verde-oscuro));
   min-height: 100vh;
   display: flex;
   align-items: center;
