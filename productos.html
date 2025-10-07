@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Productos - Arteplantas</title>
+  
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="assets/styles.css">
+  
+  <!-- Ícono de pestaña -->
+  <link rel="icon" type="image/x-icon" href="assets/icons/pestaña.png">
+</head>
+<body>
+
+  <!-- Botón menú (hamburguesa) -->
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  
+  <!-- Menú lateral -->
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="icons">
+      <a href="admin-login.html">
+        <img src="assets/icons/usuario.png" alt="Usuario" class="icon">
+      </a>
+      <a href="comprar.html" class="cart-link">
+        <img src="assets/icons/carrito.png" alt="Carrito" class="icon">
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+    <div class="brand">
+      <h1>Arteplantas</h1>
+      <p>FLORERÍA</p>
+    </div>
+  </header>
+
+  <!-- Contenedor de fichas de productos - Cada producto tiene su propia sección -->
+  <main class="container">
+    
+    <!-- Ficha para Orquídea Cattleya -->
+    <section id="ficha-orquidea" class="product-detail">
+      <a href="index.html#productos" class="back-button">← Volver a productos</a>
+      <div class="detail-container">
+        <div class="detail-image">
+          <img src="assets/images/Cattleya.jpg" alt="Orquídea Cattleya">
+        </div>
+        <div class="detail-info">
+          <h2>Orquídea Cattleya</h2>
+          <div class="detail-price">$29.900</div>
+          <div class="meta">Lila con centro amarillo</div>
+          <div class="detail-description">
+            <p>La Orquídea Cattleya es conocida como la "reina de las orquídeas" por su belleza y elegancia. Esta variedad en tonos lilas con centro amarillo es especialmente vibrante y seguramente se convertirá en el centro de atención de cualquier espacio.</p>
+            <p><strong>Cuidados:</strong> Requiere luz indirecta y riego moderado. Florece una vez al año durante varias semanas.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary" onclick="addToCart('orquidea', 'Orquídea Cattleya', 29900)">Comprar</button>
+            <a class="btn" href="index.html#productos">Seguir viendo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ficha para Molinetes -->
+    <section id="ficha-molinetes" class="product-detail">
+      <a href="index.html#productos" class="back-button">← Volver a productos</a>
+      <div class="detail-container">
+        <div class="detail-image">
+          <img src="assets/images/molinetes.jpg" alt="Molinetes">
+        </div>
+        <div class="detail-info">
+          <h2>Molinetes</h2>
+          <div class="detail-price">$4.000</div>
+          <div class="meta">Disponible en varios colores</div>
+          <div class="detail-description">
+            <p>Divertidos molinetes para decorar jardines, macetas o interiores. Añaden un toque de color y movimiento a cualquier espacio. Perfectos para regalar a niños o para alegrar tu propio jardín.</p>
+            <p><strong>Colores disponibles:</strong> Rojo, azul, amarillo, verde, rosa y multicolor.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary" onclick="addToCart('molinetes', 'Molinetes', 4000)">Comprar</button>
+            <a class="btn" href="index.html#productos">Seguir viendo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ficha para Cactus y Suculentas -->
+    <section id="ficha-cactus" class="product-detail">
+      <a href="index.html#productos" class="back-button">← Volver a productos</a>
+      <div class="detail-container">
+        <div class="detail-image">
+          <img src="assets/images/cactusSuculentas.jpg" alt="Cactus y Suculentas">
+        </div>
+        <div class="detail-info">
+          <h2>Cactus y Suculentas</h2>
+          <div class="detail-price">$2.500</div>
+          <div class="meta">Muchas variedades disponibles</div>
+          <div class="detail-description">
+            <p>Perfectos para quienes buscan plantas resistentes y de bajo mantenimiento. Nuestra selección incluye diversas especies de cactus y suculentas, ideales para decorar interiores y exteriores.</p>
+            <p><strong>Cuidados:</strong> Necesitan poca agua y mucha luz solar. Perfectas para principiantes.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary" onclick="addToCart('cactus', 'Cactus y Suculentas', 2500)">Comprar</button>
+            <a class="btn" href="index.html#productos">Seguir viendo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ficha para Ramo romántico -->
+    <section id="ficha-ramoRomantico" class="product-detail">
+      <a href="index.html#productos" class="back-button">← Volver a productos</a>
+      <div class="detail-container">
+        <div class="detail-image">
+          <img src="assets/images/ramoRomantico.jpg" alt="Ramo romántico">
+        </div>
+        <div class="detail-info">
+          <h2>Ramo romántico</h2>
+          <div class="detail-price">$30.000</div>
+          <div class="meta">Rosas, clavelinas y eucalipto</div>
+          <div class="detail-description">
+            <p>Un ramo especialmente diseñado para expresar amor y romanticismo. Combina rosas blancas, clavelinas rosadas y eucalipto para crear una composición elegante y llena de significado.</p>
+            <p><strong>Entrega:</strong> Incluye tarjeta personalizada y envoltorio especial.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary" onclick="addToCart('ramoRomantico', 'Ramo romántico', 30000)">Comprar</button>
+            <a class="btn" href="index.html#productos">Seguir viendo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ficha para Bebedero para Pajaritos -->
+    <section id="ficha-bebederoPajaritos" class="product-detail">
+      <a href="index.html#productos" class="back-button">← Volver a productos</a>
+      <div class="detail-container">
+        <div class="detail-image">
+          <img src="assets/images/bebederoPajaritos.jpg" alt="Bebedero para Pajaritos">
+        </div>
+        <div class="detail-info">
+          <h2>Bebedero para Pajaritos</h2>
+          <div class="detail-price">$5.000</div>
+          <div class="meta">Disponible en muchos colores</div>
+          <div class="detail-description">
+            <p>Atrae aves a tu jardín con este encantador bebedero para pajaritos. Fabricado en materiales resistentes a la intemperie, es perfecto para brindar agua fresca a las aves durante todo el año.</p>
+            <p><strong>Colores disponibles:</strong> Azul, verde, rojo, amarillo y naranja.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary" onclick="addToCart('bebederoPajaritos', 'Bebedero para Pajaritos', 5000)">Comprar</button>
+            <a class="btn" href="index.html#productos">Seguir viendo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ficha para Ramo de rosas rojas -->
+    <section id="ficha-ramoRosas" class="product-detail">
+      <a href="index.html#productos" class="back-button">← Volver a productos</a>
+      <div class="detail-container">
+        <div class="detail-image">
+          <img src="assets/images/ramoRosas2.jpg" alt="Ramo de rosas rojas">
+        </div>
+        <div class="detail-info">
+          <h2>Ramo de rosas rojas</h2>
+          <div class="detail-price">$50.000</div>
+          <div class="meta">Clásico</div>
+          <div class="detail-description">
+            <p>El clásico ramo de rosas rojas, símbolo por excelencia del amor y la pasión. Seleccionamos las rosas más frescas y perfectas para crear un ramo impresionante que nunca pasa de moda.</p>
+            <p><strong>Composición:</strong> 24 rosas rojas de primera calidad con follaje complementario.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary" onclick="addToCart('ramoRosas', 'Ramo de rosas rojas', 50000)">Comprar</button>
+            <a class="btn" href="index.html#productos">Seguir viendo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ficha para Portamaceta de Panda -->
+    <section id="ficha-portaPanda" class="product-detail">
+      <a href="index.html#productos" class="back-button">← Volver a productos</a>
+      <div class="detail-container">
+        <div class="detail-image">
+          <img src="assets/images/portaPanda.jpg" alt="Portamaceta de cerámica de panda">
+        </div>
+        <div class="detail-info">
+          <h2>Portamaceta de Panda</h2>
+          <div class="detail-price">$14.200</div>
+          <div class="meta">Cerámica esmaltada</div>
+          <div class="detail-description">
+            <p>Divertido y adorable portamaceta con forma de panda, perfecto para dar un toque de ternura a tus plantas. Fabricado en cerámica esmaltada de alta calidad, es resistente y fácil de limpiar.</p>
+            <p><strong>Medidas:</strong> 15cm de alto x 12cm de diámetro. Incluye plato base para evitar filtraciones.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary" onclick="addToCart('portaPanda', 'Portamaceta de Panda', 14200)">Comprar</button>
+            <a class="btn" href="index.html#productos">Seguir viendo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ficha para Planta de Crisantemos -->
+    <section id="ficha-plantaCrisas" class="product-detail">
+      <a href="index.html#productos" class="back-button">← Volver a productos</a>
+      <div class="detail-container">
+        <div class="detail-image">
+          <img src="assets/images/plantaCrisas.jpg" alt="Planta de Crisantemos">
+        </div>
+        <div class="detail-info">
+          <h2>Planta de Crisantemos</h2>
+          <div class="detail-price">$8.000</div>
+          <div class="meta">Lila y amarillo</div>
+          <div class="detail-description">
+            <p>Los crisantemos son flores alegres y coloridas que simbolizan optimismo y alegría. Esta planta en maceta florece abundantemente y es perfecta para interiores bien iluminados o exteriores semisombreados.</p>
+            <p><strong>Cuidados:</strong> Riego regular y luz indirecta. Florece durante varias semanas.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary" onclick="addToCart('plantaCrisas', 'Planta de Crisantemos', 8000)">Comprar</button>
+            <a class="btn" href="index.html#productos">Seguir viendo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JavaScript principal -->
+  <script src="assets/main.js"></script>
+  
+  <!-- JavaScript específico para la página de productos -->
+  <script>
+    // Script para mostrar la ficha correcta según el parámetro en la URL
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('producto');
+      
+      if (productId) {
+        // Ocultar todas las fichas primero
+        const allDetails = document.querySelectorAll('.product-detail');
+        allDetails.forEach(detail => {
+          detail.classList.remove('active');
+        });
+        
+        // Mostrar la ficha solicitada
+        const targetDetail = document.getElementById(`ficha-${productId}`);
+        if (targetDetail) {
+          targetDetail.classList.add('active');
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

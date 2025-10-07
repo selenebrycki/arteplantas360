@@ -1,0 +1,1011 @@
+/* ===============================
+   ARCHIVO: styles.css
+   DESCRIPCIÓN: Estilos principales para toda la página web de Arteplantas
+   SECCIONES: Variables, Layout general, Header, Menú lateral, Galería, Productos, Botones
+   =============================== */
+
+/* ===============================
+   VARIABLES DE COLOR
+   Paleta de colores del sitio
+   =============================== */
+:root {
+  --amarillo: #fef43d;
+  --rojo: #ff1616;
+  --verde-claro: #6bc458;
+  --verde-oscuro: #378e66;
+  --negro: #25201f;
+}
+
+/* ===============================
+   ESTILOS GENERALES
+   Aplicados a todo el body
+   =============================== */
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background: #ffe4e4;
+  color: var(--negro);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===============================
+   MENÚ LATERAL (SIDEBAR)
+   Menú hamburguesa desplegable
+   =============================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 220px;
+  height: 100%;
+  background: white;
+  color: var(--negro);
+  padding-top: 60px;
+  transition: 0.3s;
+  z-index: 1000;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  display: block;
+  font-size: 18px;
+  padding: 10px 20px;
+  color: var(--negro);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.sidebar ul li a:hover {
+  background: var(--verde-claro);
+  border-radius: 5px;
+}
+
+/* Botón hamburguesa para abrir el menú */
+.menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 26px;
+  color: var(--negro);
+  cursor: pointer;
+  z-index: 1100;
+  background: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ===============================
+   HEADER
+   Encabezado con logo y iconos
+   =============================== */
+.header {
+  position: relative;
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(to right, var(--verde-claro), var(--verde-oscuro));
+}
+
+/* Contenedor de iconos (usuario y carrito) */
+.header .icons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+/* Iconos individuales */
+.icon {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+/* Enlace del carrito con contador */
+.cart-link {
+  position: relative;
+  display: inline-block;
+}
+
+/* Contador de productos en el carrito */
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--amarillo);
+  color: var(--verde-oscuro);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge de administrador */
+.admin-badge {
+  background: var(--amarillo);
+  color: var(--verde-oscuro);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  display: none;
+}
+
+.admin-login-link {
+  display: inline-block;
+}
+
+.admin-login-link:hover {
+  opacity: 0.7;
+}
+
+/* Marca (logo y nombre) */
+.header .brand h1 {
+  margin: 0;
+  font-size: 52px;
+  font-family: "Dancing Script", cursive;
+  color: var(--amarillo);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header .brand p {
+  margin: 5px 0 0;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: var(--negro);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* ===============================
+   GALERÍA PRINCIPAL
+   Galería de imágenes en la página de inicio
+   =============================== */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  width: calc(33.333% - 14px);
+  min-width: 280px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   CONTENEDOR GENERAL
+   Contenedor principal de contenido
+   =============================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ===============================
+   INTRO DE PRODUCTOS
+   Sección de introducción antes de los productos
+   =============================== */
+.intro {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.intro h2 {
+  margin-bottom: 10px;
+  font-size: 32px;
+  font-family: "Dancing Script", cursive;
+  color: var(--verde-oscuro);
+}
+
+.intro p {
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: 18px;
+  color: var(--negro);
+  line-height: 1.6;
+}
+
+/* ===============================
+   GRID DE PRODUCTOS
+   Cuadrícula de tarjetas de productos
+   =============================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Tarjetas de productos */
+.card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 15px 15px 10px;
+  font-size: 18px;
+}
+
+.card h3 a {
+  color: var(--negro);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.card h3 a:hover {
+  color: var(--verde-oscuro);
+}
+
+/* Precio del producto */
+.price {
+  margin: 0 15px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--verde-oscuro);
+}
+
+/* Metadatos del producto */
+.meta {
+  margin: 0 15px 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Contenedor de acciones (botones) */
+.actions {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  border-top: 1px solid #eee;
+  margin-top: auto;
+}
+
+/* Advertencia de stock bajo */
+.stock-warning {
+  background: #fff3cd;
+  color: #856404;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin: 5px 15px;
+  text-align: center;
+  border: 1px solid #ffeaa7;
+}
+
+/* ===============================
+   BOTONES
+   Estilos para todos los botones del sitio
+   =============================== */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  background-color: #f1f1f1;
+  color: var(--negro);
+  text-align: center;
+  flex: 1;
+  font-family: "Roboto", sans-serif;
+}
+
+.btn:hover {
+  background-color: #ddd;
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  background-color: var(--verde-oscuro);
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #2a6e4f;
+}
+
+.btn:disabled {
+  background: #6c757d !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn:disabled:hover {
+  transform: none;
+}
+
+/* ===============================
+   FICHAS DE PRODUCTOS (DETALLE)
+   Página de detalle de cada producto
+   =============================== */
+.product-detail {
+  display: none;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.product-detail.active {
+  display: block;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: var(--verde-oscuro);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #2a6e4f;
+}
+
+.detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.detail-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.detail-image img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detail-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.detail-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--verde-oscuro);
+  margin: 15px 0;
+}
+
+.detail-description {
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+/* ===============================
+   INFORMACIÓN DE LA TIENDA
+   Sección con información de contacto y ubicación
+   =============================== */
+.store-info {
+  margin-top: 60px;
+  padding: 40px 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.info-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h3 {
+  font-family: "Dancing Script", cursive;
+  font-size: 24px;
+  color: var(--verde-oscuro);
+  margin-bottom: 15px;
+}
+
+.info-details p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+/* ===============================
+   FORMULARIO DE COMPRA
+   Página de checkout
+   =============================== */
+.checkout-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.customer-info,
+.order-summary {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-family: "Dancing Script", cursive;
+  font-size: 28px;
+  color: var(--verde-oscuro);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--verde-claro);
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--negro);
+}
+
+input[type="text"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--verde-oscuro);
+}
+
+.service-option {
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.service-option:hover {
+  background-color: #f9f9f9;
+}
+
+.service-option input[type="radio"] {
+  margin-right: 10px;
+}
+
+.address-field {
+  display: none;
+  margin-top: 15px;
+}
+
+/* Items del carrito */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.item-name {
+  flex-grow: 1;
+  font-size: 15px;
+}
+
+.item-quantity {
+  margin: 0 15px;
+  color: #666;
+  font-size: 14px;
+}
+
+.item-price {
+  font-weight: bold;
+  color: var(--verde-oscuro);
+  min-width: 80px;
+  text-align: right;
+}
+
+.empty-cart-message {
+  text-align: center;
+  padding: 30px;
+  color: #999;
+  font-style: italic;
+}
+
+.cart-total {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 2px solid var(--verde-claro);
+  color: var(--verde-oscuro);
+}
+
+/* Botón para vaciar carrito */
+.clear-cart-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s, transform 0.2s;
+  font-family: "Roboto", sans-serif;
+}
+
+.clear-cart-btn:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* Botón de enviar pedido */
+.submit-order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--verde-oscuro);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s, transform 0.2s;
+  font-family: "Roboto", sans-serif;
+}
+
+.submit-order:hover {
+  background-color: #2a6e4f;
+  transform: translateY(-2px);
+}
+
+.submit-order:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.submit-order:disabled:hover {
+  transform: none;
+}
+
+.whatsapp-icon {
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+/* ===============================
+   ESTILOS PARA QUIÉNES SOMOS
+   Página de información de la empresa
+   =============================== */
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+  font-size: 16px;
+  color: #333;
+}
+
+.about-text .lead {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--verde-oscuro);
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+.about-text .mission {
+  background: #f8f9fa;
+  padding: 20px;
+  border-left: 4px solid var(--verde-claro);
+  border-radius: 5px;
+  font-size: 17px;
+  text-align: center;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.contact-card {
+  background: linear-gradient(135deg, var(--verde-claro), var(--verde-oscuro));
+  color: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card h3 {
+  margin: 0 0 15px 0;
+  font-size: 20px;
+  font-family: "Dancing Script", cursive;
+}
+
+.contact-card p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.contact-card a {
+  color: var(--amarillo);
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   ESTILOS PARA PREGUNTAS FRECUENTES
+   Página de FAQ con acordeón
+   =============================== */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: white;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 20px 25px;
+  background: var(--verde-oscuro);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+  background: #2a6e4f;
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.faq-toggle {
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.faq-answer.active {
+  padding: 25px;
+  max-height: 1000px;
+}
+
+.faq-answer p {
+  margin: 0 0 15px 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-answer ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.faq-answer li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.faq-contact {
+  text-align: center;
+  margin-top: 40px;
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq-contact a {
+  color: var(--verde-oscuro);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.faq-contact a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   NOTIFICACIONES
+   Mensajes emergentes de confirmación
+   =============================== */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+   Adaptación para dispositivos móviles
+   =============================== */
+@media (max-width: 768px) {
+  /* Galería */
+  .gallery {
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .gallery img {
+    width: calc(50% - 8px);
+    min-width: 200px;
+    height: 250px;
+  }
+
+  /* Header */
+  .header .brand h1 {
+    font-size: 36px;
+  }
+
+  .header .brand p {
+    font-size: 14px;
+  }
+
+  /* Detalle de producto */
+  .detail-container {
+    flex-direction: column;
+  }
+
+  /* Checkout */
+  .checkout-container {
+    flex-direction: column;
+  }
+
+  /* Grid de productos */
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  /* Información */
+  .about-content {
+    padding: 25px 20px;
+    margin: 0 10px;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+
+  /* FAQ */
+  .faq-question {
+    padding: 15px 20px;
+  }
+
+  .faq-question h3 {
+    font-size: 16px;
+  }
+
+  .faq-answer.active {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Header */
+  .header .icons {
+    gap: 15px;
+    top: 15px;
+    right: 15px;
+  }
+
+  .header {
+    padding: 30px 15px;
+  }
+
+  .header .brand h1 {
+    font-size: 28px;
+  }
+
+  /* Productos */
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* Grid */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Intro */
+  .intro h2 {
+    font-size: 26px;
+  }
+
+  .intro p {
+    font-size: 16px;
+  }
+
+  /* Información */
+  .about-text p {
+    font-size: 15px;
+  }
+
+  .contact-card {
+    padding: 20px 15px;
+  }
+
+  /* FAQ */
+  .faq-question {
+    padding: 12px 15px;
+  }
+
+  .faq-question h3 {
+    font-size: 15px;
+  }
+
+  /* Formulario */
+  .section-title {
+    font-size: 24px;
+  }
+
+  /* Galería */
+  .gallery {
+    padding: 15px;
+  }
+
+  .gallery img {
+    width: 100%;
+    min-width: unset;
+    height: 280px;
+  }
+}
