@@ -189,31 +189,27 @@ html {
   letter-spacing: 2px;
 }
 
-/* ===============================
-   GALERÍA PRINCIPAL
-   Galería de imágenes en la página de inicio
-   =============================== */
-.gallery {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 30px;
-  flex-wrap: wrap;
-}
+.owl-carousel {
+      width: 100%;
+      max-width: 95vw;     /* ancho máximo */
+      margin: 50px auto;   /* separación arriba y centrado */
+      padding: 0 20px;     /* espacio a los costados */
+      box-sizing: border-box;
+    }
 
-.gallery img {
-  width: calc(33.333% - 14px);
-  min-width: 280px;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s;
-}
+    .owl-carousel img {
+      width: 100%;
+      height: 65vh;        /* altura del carrusel */
+      object-fit: cover;   /* recorta sin deformar */
+      border-radius: 10px; /* bordes redondeados */
+    }
 
-.gallery img:hover {
-  transform: scale(1.05);
-}
+    @media (max-width: 768px) {
+      .owl-carousel img {
+        height: 50vh; /* más bajo en celulares */
+      } }
+
+
 
 /* ===============================
    CONTENEDOR GENERAL

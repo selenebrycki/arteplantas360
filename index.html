@@ -13,6 +13,17 @@
 
   <!-- Ícono de pestaña -->
   <link rel="icon" type="image/x-icon" href="assets/icons/pestaña.png">
+
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Owl Carousel JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 </head>
 <body>
 
@@ -59,11 +70,16 @@
     </div>
   </header>
 
-  <!-- Galería principal - Imágenes destacadas -->
-  <div class="gallery">
-    <img src="assets/images/flor1.jpg" alt="Arreglo floral colorido">
-    <img src="assets/images/flor2.jpg" alt="Ramo de flores frescas">
-    <img src="assets/images/flor3.jpg" alt="Plantas decorativas">
+  <div class="owl-carousel">
+    <div><img src="assets/images/flor1.jpg" alt="Arreglo floral colorido"></div>
+    <div><img src="assets/images/flor2.jpg" alt="Ramo de flores frescas"></div>
+    <div><img src="assets/images/flor3.jpg" alt="Plantas decorativas"></div>
+    <div><img src="assets/images/rosas.jpg" alt="Ramo de rosas"></div>
+    <div><img src="assets/images/plantaCrisas.jpg" alt="Plantas de crisantemos"></div>
+    <div><img src="assets/images/orquidea.jpg" alt="Plantas de orquidea"></div>
+    <div><img src="assets/images/bebederoPajaritos.jpg" alt="Bebedero para pajaritos"></div>
+    <div><img src="assets/images/cactusSuculentas.jpg" alt="Cactus y suculentas"></div>
+    <div><img src="assets/images/crisantemosMini.jpg" alt="Plantas de crisas"></div>
   </div>
 
   <!-- Contenido principal -->
@@ -109,6 +125,23 @@
 
   <!-- JavaScript principal -->
   <script src="assets/main.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: { items: 1 },      // celulares
+          768: { items: 2 },    // tablets
+          1024: { items: 3 }    // pantallas grandes
+        }
+      });
+    });
+  </script>
+
 
 </body>
 </html>
