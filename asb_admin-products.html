@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Productos - Arteplantas</title>
+    <title>Gestión de Productos</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css">
-    <link rel="stylesheet" href="assets/admin.css">
-    <link rel="icon" type="image/x-icon" href="assets/icons/pestaña.png">
+    <link rel="stylesheet" href="asb_assets/asb_styles.css">
+    <link rel="stylesheet" href="asb_assets/asb_admin.css">
+    <link rel="icon" type="image/x-icon" href="asb_assets/asb_icons/asb_pestaña.png">
 </head>
 <body class="admin-panel">
     <div class="menu-toggle" id="menu-toggle">☰</div>
@@ -15,10 +15,9 @@
     <aside class="sidebar" id="sidebar">
         <nav>
             <ul>
-                <li><a href="index.html">Inicio Tienda</a></li>
-                <li><a href="admin-products.html" class="active admin-menu-item">Gestión de Productos</a></li>
+                <li><a href="asb_admin-products.html" class="active admin-menu-item">Gestión de Productos</a></li>
                 <li class="admin-menu-section">
-                    <a href="admin-logout.html" class="admin-logout-item" onclick="return confirm('¿Cerrar sesión?')">
+                    <a href="asb_admin-logout.html" class="admin-logout-item" onclick="return confirm('¿Cerrar sesión?')">
                         Cerrar Sesión
                     </a>
                 </li>
@@ -27,21 +26,21 @@
     </aside>
     
     <header class="header">
-        <div class="icons">
+        <div class="asb_icons">
             <div class="admin-badge">
                 <span>Admin</span>
             </div>
         </div>
         <div class="brand">
-            <h1>Arteplantas</h1>
-            <p>FLORERÍA - ADMIN</p>
+            <h1>Food Express</h1>
+            <p>Local de comida rápida</p>
         </div>
     </header>
  
     <main class="container">
         <div class="admin-header">
             <h2>Gestión de Productos</h2>
-            <p>Administra el inventario de productos de la florería</p>
+            <p>Administra la página web</p>
         </div>
 
         <div class="action-bar">
@@ -91,12 +90,9 @@
                         <label for="product-category">Categoría *</label>
                         <select id="product-category" required>
                             <option value="">Seleccionar categoría</option>
-                            <option value="Plantas">Plantas</option>
-                            <option value="Flores">Flores</option>
-                            <option value="Ramos">Ramos</option>
-                            <option value="Decoración">Decoración</option>
-                            <option value="Accesorios">Accesorios</option>
-                            <option value="Macetas">Macetas</option>
+                            <option value="Comida">Plantas</option>
+                            <option value="Bebida">Flores</option>
+                            <option value="Combos">Ramos</option>
                         </select>
                     </div>
                 </div>
@@ -121,7 +117,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="product-image">Imagen (URL)</label>
-                        <input type="text" id="product-image" placeholder="assets/images/nombre.jpg">
+                        <input type="text" id="product-image" placeholder="asb_assets/images/nombre.jpg">
                     </div>
                     
                     <div class="form-group">
@@ -141,10 +137,10 @@
         </div>
     </div>
 
-    <script src="assets/main.js"></script>
+    <script src="asb_assets/asb_main.js"></script>
     <script>
         // Verificar autenticación
-        if (!localStorage.getItem('arteplantas-admin')) {
+        if (!localStorage.getItem('foodexpress-admin')) {
             window.location.href = 'admin-login.html';
         }
     </script>

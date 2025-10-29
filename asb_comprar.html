@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Completar Compra - Arteplantas</title>
+  <title>Completar Compra - foodexpress</title>
   
   <!-- Fuentes de Google -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto&display=swap" rel="stylesheet">
   
   <!-- Hoja de estilos -->
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="asb_assets/asb_styles.css">
   
   <!-- Ícono de pestaña -->
-  <link rel="icon" type="image/x-icon" href="assets/icons/pestaña.png">
+  <link rel="icon" type="image/x-icon" href="asb_assets/asb_icons/asb_asb_pestaña.png">
 </head>
 <body>
 
@@ -25,26 +25,25 @@
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="index.html#productos">Productos</a></li>
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="asb_preguntas-frecuentes.html">Preguntas frecuentes</a></li>
       </ul>
     </nav>
   </aside>
   
   <!-- Encabezado -->
   <header class="header">
-    <div class="icons">
-      <a href="admin-login.html">
-        <img src="assets/icons/usuario.png" alt="Usuario" class="icon">
+    <div class="asb_icons">
+      <a href="asb_admin-login.html">
+        <img src="asb_assets/asb_icons/asb_usuario.png" alt="Usuario" class="icon">
       </a>
-      <a href="comprar.html" class="cart-link">
-        <img src="assets/icons/carrito.png" alt="Carrito" class="icon">
+      <a href="asb_comprar.html" class="cart-link">
+        <img src="asb_assets/asb_icons/asb_carrito.png" alt="Carrito" class="icon">
         <span class="cart-count" id="cart-count">0</span>
       </a>
     </div>
     <div class="brand">
-      <h1>Arteplantas</h1>
-      <p>FLORERÍA</p>
+      <h1>Food Express</h1>
+      <p>Somos un local de comida rápida</p>
     </div>
   </header>
 
@@ -113,7 +112,7 @@
         </button>
         
         <button type="submit" class="submit-order" id="submit-order">
-          <img src="assets/icons/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+          <img src="asb_assets/asb_icons/asb_whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
           Realizar pedido por WhatsApp
         </button>
       </div>
@@ -121,7 +120,7 @@
   </main>
 
   <!-- JavaScript principal -->
-  <script src="assets/main.js"></script>
+  <script src="asb_assets/asb_main.js"></script>
   
   <!-- JavaScript específico para la página de compra -->
   <script>
@@ -147,7 +146,7 @@
     
     // Cargar carrito desde localStorage
     function loadCart() {
-      const cart = JSON.parse(localStorage.getItem('arteplantas-cart')) || [];
+      const cart = JSON.parse(localStorage.getItem('foodexpress-cart')) || [];
       const cartItems = document.getElementById('cart-items');
       const totalAmount = document.getElementById('total-amount');
       const emptyCartMessage = document.getElementById('empty-cart-message');
@@ -200,7 +199,7 @@
       const address = document.getElementById('address').value;
       const notes = document.getElementById('notes').value;
       
-      const cart = JSON.parse(localStorage.getItem('arteplantas-cart')) || [];
+      const cart = JSON.parse(localStorage.getItem('foodexpress-cart')) || [];
       
       if (cart.length === 0) {
         alert('No hay productos en el carrito');

@@ -3,27 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arteplantas — Florería</title>
+  <title>Food express</title>
 
   <!-- Fuentes de Google -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto&display=swap" rel="stylesheet">
 
   <!-- Hoja de estilos -->
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="asb_assets/asb_styles.css">
 
   <!-- Ícono de pestaña -->
-  <link rel="icon" type="image/x-icon" href="assets/icons/pestaña.png">
-
-  <!-- Owl Carousel CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <!-- Owl Carousel JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
+  <link rel="icon" type="image/x-icon" href="asb_assets/asb_icons/asb_pestaña.png">
 </head>
 <body>
 
@@ -36,12 +25,11 @@
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="#productos">Productos</a></li>
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="asb_preguntas-frecuentes.html">Preguntas frecuentes</a></li>
         <!-- Enlace de administración -->
         <li id="admin-menu-item" style="display: none;">
-          <a href="admin-products.html" style="color: #fcf635; font-weight: bold">Gestión de Productos</a>
-          <a href="admin-logout.html" style="color: #e74c3c; font-weight: bold">Cerrar Sesión</a>
+          <a href="asb_admin-products.html" style="color: #fcf635; font-weight: bold">CRUD de Productos</a>
+          <a href="asb_admin-logout.html" style="color: #e74c3c; font-weight: bold">Cerrar Sesión</a>
         </li> 
       </ul>
     </nav>
@@ -49,38 +37,24 @@
   
   <!-- Encabezado -->
   <header class="header">
-    <div class="icons">
+    <div class="asb_icons">
       <!-- Badge de administrador (solo visible cuando está logueado) -->
       <span class="admin-badge" id="admin-badge">Admin</span>
       
-      <!-- Icono de usuario - Redirige al login de admin -->
-      <a href="admin-login.html" class="admin-login-link" id="admin-login-link">
-        <img src="assets/icons/usuario.png" alt="Usuario" class="icon">
+      <a href="asb_admin-login.html" class="admin-login-link" id="admin-login-link">
+        <img src="asb_assets\asb_icons\asb_usuario.png" alt="Usuario" class="icon">
       </a>
-      
       <!-- Icono de carrito con contador de productos -->
-      <a href="comprar.html" class="cart-link">
-        <img src="assets/icons/carrito.png" alt="Carrito" class="icon">
+      <a href="asb_comprar.html" class="cart-link">
+        <img src="asb_assets/asb_icons/asb_carrito.png" alt="Carrito" class="icon">
         <span class="cart-count" id="cart-count">0</span>
       </a>
     </div>
     <div class="brand">
-      <h1>Arteplantas</h1>
-      <p>FLORERÍA</p>
+      <h1>Food Express</h1>
+      <p>Somos un local de comida rápida</p>
     </div>
   </header>
-
-  <div class="owl-carousel">
-    <div><img src="assets/images/flor1.jpg" alt="Arreglo floral colorido"></div>
-    <div><img src="assets/images/flor2.jpg" alt="Ramo de flores frescas"></div>
-    <div><img src="assets/images/flor3.jpg" alt="Plantas decorativas"></div>
-    <div><img src="assets/images/rosas.jpg" alt="Ramo de rosas"></div>
-    <div><img src="assets/images/plantaCrisas.jpg" alt="Plantas de crisantemos"></div>
-    <div><img src="assets/images/orquidea.jpg" alt="Plantas de orquidea"></div>
-    <div><img src="assets/images/bebederoPajaritos.jpg" alt="Bebedero para pajaritos"></div>
-    <div><img src="assets/images/cactusSuculentas.jpg" alt="Cactus y suculentas"></div>
-    <div><img src="assets/images/crisantemosMini.jpg" alt="Plantas de crisas"></div>
-  </div>
 
   <!-- Contenido principal -->
   <main class="container">
@@ -88,7 +62,7 @@
     <!-- Introducción a los productos -->
     <div class="intro">
       <h2>Nuestros Productos</h2>
-      <p>Descubre la belleza de nuestras plantas y flores seleccionadas especialmente para vos.</p>
+      <p>Descubre la gran variedad que tenemos para vos</p>
     </div>
 
     <!-- Sección de productos -->
@@ -101,22 +75,21 @@
     <section class="store-info">
       <div class="info-grid">
         <div class="info-card">
-          <h3>Nuestra Esquina</h3>
-          <p>Te esperamos en nuestro local para que vivas la experiencia de Arteplantas: un espacio lleno de color, vida y amor por la naturaleza.</p>
+          <h3>Nuestro local</h3>
+          <p>Te esperamos en nuestro local para que vivas la experiencia FOOD Express</p>
           <div class="info-details">
-            <p>📍 Av. Uruguay 3888, Posadas, Misiones</p>
-            <p>🕒 Lunes a viernes: 8:00 a 18:00 | Sábados: 8:00 a 13:00</p>
+            <p>📍 Posadas, Misiones</p>
+            <p>🕒 Lunes a viernes: 17:00 a .00:00 | Sábados: 18:00 a 01:00</p>
             <p>📞 3764-642838 | ☎ 4433941</p>
           </div>
         </div>
         
         <div class="info-card">
-          <h3>Calidad y dedicación desde hace más de 30 años</h3>
+          <h3>Productos Sabrosos y veloces</h3>
           <div class="info-details">
-            <p>✓ Flores frescas</p>
+            <p>✓ Hamburguesas, panchos, papas, pizzas, etc</p>
             <p>✓ Entregas a domicilio en Posadas, Garupá y Candelaria</p>
-            <p>✓ Asesoramiento personalizado</p>
-            <p>✓ Precios justos y atención con amor</p>
+            <p>✓ Precios justos</p>
           </div>
         </div>
       </div>
@@ -124,24 +97,7 @@
   </main>
 
   <!-- JavaScript principal -->
-  <script src="assets/main.js"></script>
-  <script>
-    $(document).ready(function(){
-      $(".owl-carousel").owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        autoplayHoverPause: true,
-        responsive: {
-          0: { items: 1 },      // celulares
-          768: { items: 2 },    // tablets
-          1024: { items: 3 }    // pantallas grandes
-        }
-      });
-    });
-  </script>
-
+  <script src="asb_assets/asb_main.js"></script>
 
 </body>
 </html>

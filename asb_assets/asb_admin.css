@@ -1,5 +1,5 @@
 /* ===============================
-   ARCHIVO: admin.css
+   ARCHIVO: asb_admin.css
    DESCRIPCIÓN: Estilos específicos para el panel de administración
    SECCIONES: Login, Panel admin, Tablas, Modales, Formularios
    =============================== */
@@ -9,7 +9,7 @@
    Estilos para la página de inicio de sesión
    =============================== */
 .admin-login-page {
-  background: linear-gradient(to right, var(--verde-claro), var(--verde-oscuro));
+  background: linear-gradient(to right, var(--verde-claro), var(--amarillo));
   min-height: 100vh;
   display: flex;
   align-items: center;

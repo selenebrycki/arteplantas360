@@ -1,6 +1,6 @@
 /* ===============================
    ARCHIVO: main.js
-   DESCRIPCIÓN: JavaScript principal para toda la página web de Arteplantas
+   DESCRIPCIÓN: JavaScript principal para toda la página web de foodexpress
    FUNCIONES: Menú lateral, carrito, productos, notificaciones, admin
    =============================== */
 
@@ -51,7 +51,7 @@ function initSidebar() {
 function checkAdminStatus() {
   if (!isLocalStorageAvailable()) return
 
-  const isAdmin = localStorage.getItem("arteplantas-admin") === "true"
+  const isAdmin = localStorage.getItem("foodexpress-admin") === "true"
   const adminBadge = document.getElementById("admin-badge")
   const adminLoginLink = document.getElementById("admin-login-link")
   const adminMenuItem = document.getElementById("admin-menu-item")
@@ -61,7 +61,7 @@ function checkAdminStatus() {
     if (adminBadge) adminBadge.style.display = "inline-block"
     if (adminLoginLink) {
       adminLoginLink.innerHTML =
-        '<img src="assets/icons/usuario.png" alt="Admin" class="icon" title="Sesión Activa - Admin">'
+        '<img src="asb_assets/asb_icons/usuario.png" alt="Admin" class="icon" title="Sesión Activa - Admin">'
       adminLoginLink.href = "admin-products.html"
     }
     if (adminMenuItem) adminMenuItem.style.display = "block"
@@ -70,7 +70,7 @@ function checkAdminStatus() {
     if (adminBadge) adminBadge.style.display = "none"
     if (adminLoginLink) {
       adminLoginLink.innerHTML =
-        '<img src="assets/icons/usuario.png" alt="Admin Login" class="icon" title="Acceso Administradores">'
+        '<img src="asb_assets/asb_icons/usuario.png" alt="Admin Login" class="icon" title="Acceso Administradores">'
       adminLoginLink.href = "admin-login.html"
     }
     if (adminMenuItem) adminMenuItem.style.display = "none"
@@ -98,13 +98,13 @@ function formatPrice(price) {
 function loadProducts() {
   if (!isLocalStorageAvailable()) return getDefaultProducts()
 
-  var productsJSON = localStorage.getItem("arteplantas-products")
+  var productsJSON = localStorage.getItem("foodexpress-products")
   var products = productsJSON ? JSON.parse(productsJSON) : null
 
   // Si no hay productos, usar datos por defecto
   if (!products || products.length === 0) {
     products = getDefaultProducts()
-    localStorage.setItem("arteplantas-products", JSON.stringify(products))
+    localStorage.setItem("foodexpress-products", JSON.stringify(products))
   }
 
   return products
@@ -121,7 +121,7 @@ function getDefaultProducts() {
       category: "Plantas",
       visible: true,
       description: "La Orquídea Cattleya es conocida como la 'reina de las orquídeas' por su belleza y elegancia.",
-      image: "assets/images/Cattleya.jpg",
+      image: "asb_assets/images/Cattleya.jpg",
       meta: "Lila con centro amarillo",
     },
     {
@@ -133,7 +133,7 @@ function getDefaultProducts() {
       category: "Decoración",
       visible: true,
       description: "Divertidos molinetes para decorar jardines, macetas o interiores.",
-      image: "assets/images/molinetes.jpg",
+      image: "asb_assets/images/molinetes.jpg",
       meta: "Disponible en varios colores",
     },
     {
@@ -145,7 +145,7 @@ function getDefaultProducts() {
       category: "Plantas",
       visible: true,
       description: "Perfectos para quienes buscan plantas resistentes y de bajo mantenimiento.",
-      image: "assets/images/cactusSuculentas.jpg",
+      image: "asb_assets/images/cactusSuculentas.jpg",
       meta: "Muchas variedades disponibles",
     },
     {
@@ -157,7 +157,7 @@ function getDefaultProducts() {
       category: "Ramos",
       visible: true,
       description: "Un ramo especialmente diseñado para expresar amor y romanticismo.",
-      image: "assets/images/ramoRomantico.jpg",
+      image: "asb_assets/images/ramoRomantico.jpg",
       meta: "Rosas, clavelinas y eucalipto",
     },
     {
@@ -169,7 +169,7 @@ function getDefaultProducts() {
       category: "Accesorios",
       visible: true,
       description: "Atrae aves a tu jardín con este encantador bebedero para pajaritos.",
-      image: "assets/images/bebederoPajaritos.jpg",
+      image: "asb_assets/images/bebederoPajaritos.jpg",
       meta: "Disponible en muchos colores",
     },
     {
@@ -181,7 +181,7 @@ function getDefaultProducts() {
       category: "Ramos",
       visible: true,
       description: "El clásico ramo de rosas rojas, símbolo por excelencia del amor y la pasión.",
-      image: "assets/images/ramoRosas2.jpg",
+      image: "asb_assets/images/ramoRosas2.jpg",
       meta: "Clásico",
     },
     {
@@ -193,7 +193,7 @@ function getDefaultProducts() {
       category: "Macetas",
       visible: true,
       description: "Divertido y adorable portamaceta con forma de panda.",
-      image: "assets/images/portaPanda.jpg",
+      image: "asb_assets/images/portaPanda.jpg",
       meta: "Cerámica esmaltada",
     },
     {
@@ -205,7 +205,7 @@ function getDefaultProducts() {
       category: "Plantas",
       visible: true,
       description: "Los crisantemos son flores alegres y coloridas que simbolizan optimismo y alegría.",
-      image: "assets/images/plantaCrisas.jpg",
+      image: "asb_assets/images/plantaCrisas.jpg",
       meta: "Lila y amarillo",
     },
   ]
@@ -213,7 +213,7 @@ function getDefaultProducts() {
 
 function saveProducts(products) {
   if (!isLocalStorageAvailable()) return
-  localStorage.setItem("arteplantas-products", JSON.stringify(products))
+  localStorage.setItem("foodexpress-products", JSON.stringify(products))
 }
 
 function findProductById(id) {
@@ -341,7 +341,7 @@ function addToCart(productId, productName, productPrice) {
     return
   }
 
-  var cartJSON = localStorage.getItem("arteplantas-cart")
+  var cartJSON = localStorage.getItem("foodexpress-cart")
   var cart = cartJSON ? JSON.parse(cartJSON) : []
   var products = loadProducts()
   var product = findProductById(productId)
@@ -368,7 +368,7 @@ function addToCart(productId, productName, productPrice) {
       })
     }
 
-    localStorage.setItem("arteplantas-cart", JSON.stringify(cart))
+    localStorage.setItem("foodexpress-cart", JSON.stringify(cart))
     showNotification("Producto agregado al carrito")
     updateCartCounter()
   } else {
@@ -380,7 +380,7 @@ function clearCart() {
   if (confirm("¿Estás seguro de que quieres vaciar el carrito?")) {
     if (!isLocalStorageAvailable()) return
 
-    localStorage.removeItem("arteplantas-cart")
+    localStorage.removeItem("foodexpress-cart")
     updateCartCounter()
 
     // Recargar vista del carrito si estamos en la página de compra
@@ -399,7 +399,7 @@ function clearCart() {
 function updateCartCounter() {
   if (!isLocalStorageAvailable()) return
 
-  var cartJSON = localStorage.getItem("arteplantas-cart")
+  var cartJSON = localStorage.getItem("foodexpress-cart")
   var cart = cartJSON ? JSON.parse(cartJSON) : []
   var totalItems = 0
 
@@ -470,7 +470,7 @@ function generateId() {
 function checkAdminAuth() {
   if (!isLocalStorageAvailable()) return false
 
-  if (!localStorage.getItem("arteplantas-admin")) {
+  if (!localStorage.getItem("foodexpress-admin")) {
     window.location.href = "admin-login.html"
     return false
   }
@@ -635,8 +635,8 @@ function logout() {
   if (confirm("¿Estás seguro de que quieres cerrar sesión?")) {
     if (!isLocalStorageAvailable()) return
 
-    localStorage.removeItem("arteplantas-admin")
-    localStorage.removeItem("arteplantas-admin-user")
+    localStorage.removeItem("foodexpress-admin")
+    localStorage.removeItem("foodexpress-admin-user")
 
     // Disparar evento para actualizar la interfaz
     if (window.Event) {
@@ -722,10 +722,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Escuchar cambios en localStorage (para sincronizar entre pestañas)
   window.addEventListener("storage", (e) => {
-    if (e.key === "arteplantas-admin") {
+    if (e.key === "foodexpress-admin") {
       checkAdminStatus()
     }
-    if (e.key === "arteplantas-cart") {
+    if (e.key === "foodexpress-cart") {
       updateCartCounter()
     }
   })

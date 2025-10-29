@@ -51,11 +51,11 @@ document.head.appendChild(style)
 
 // Gestión de productos
 function loadProducts() {
-  return JSON.parse(localStorage.getItem("arteplantas-products")) || []
+  return JSON.parse(localStorage.getItem("foodexpress-products")) || []
 }
 
 function saveProducts(products) {
-  localStorage.setItem("arteplantas-products", JSON.stringify(products))
+  localStorage.setItem("foodexpress-products", JSON.stringify(products))
 }
 
 function findProductById(id) {
@@ -244,7 +244,7 @@ function deleteProductConfirm(productId) {
 
 // Función para verificar autenticación en páginas admin
 function checkAdminAuth() {
-  if (!localStorage.getItem("arteplantas-admin")) {
+  if (!localStorage.getItem("foodexpress-admin")) {
     window.location.href = "admin-login.html"
     return false
   }
@@ -253,7 +253,7 @@ function checkAdminAuth() {
 
 // Sincronizar productos con los datos por defecto si no existen
 function syncProductsWithDefaults() {
-  const products = JSON.parse(localStorage.getItem("arteplantas-products"))
+  const products = JSON.parse(localStorage.getItem("foodexpress-products"))
 
   // Si no hay productos o están vacíos, cargar los productos por defecto
   if (!products || products.length === 0) {
@@ -270,7 +270,7 @@ function syncProductsWithDefaults() {
         category: "Plantas",
         visible: true,
         description: "La Orquídea Cattleya es conocida como la 'reina de las orquídeas' por su belleza y elegancia.",
-        image: "assets/images/Cattleya.jpg",
+        image: "asb_assets/images/Cattleya.jpg",
         meta: "Lila con centro amarillo",
       },
       {
@@ -282,7 +282,7 @@ function syncProductsWithDefaults() {
         category: "Decoración",
         visible: true,
         description: "Divertidos molinetes para decorar jardines, macetas o interiores.",
-        image: "assets/images/molinetes.jpg",
+        image: "asb_assets/images/molinetes.jpg",
         meta: "Disponible en varios colores",
       },
       {
@@ -294,7 +294,7 @@ function syncProductsWithDefaults() {
         category: "Plantas",
         visible: true,
         description: "Perfectos para quienes buscan plantas resistentes y de bajo mantenimiento.",
-        image: "assets/images/cactusSuculentas.jpg",
+        image: "asb_assets/images/cactusSuculentas.jpg",
         meta: "Muchas variedades disponibles",
       },
       {
@@ -306,7 +306,7 @@ function syncProductsWithDefaults() {
         category: "Ramos",
         visible: true,
         description: "Un ramo especialmente diseñado para expresar amor y romanticismo.",
-        image: "assets/images/ramoRomantico.jpg",
+        image: "asb_assets/images/ramoRomantico.jpg",
         meta: "Rosas, clavelinas y eucalipto",
       },
       {
@@ -318,7 +318,7 @@ function syncProductsWithDefaults() {
         category: "Accesorios",
         visible: true,
         description: "Atrae aves a tu jardín con este encantador bebedero para pajaritos.",
-        image: "assets/images/bebederoPajaritos.jpg",
+        image: "asb_assets/images/bebederoPajaritos.jpg",
         meta: "Disponible en muchos colores",
       },
       {
@@ -330,7 +330,7 @@ function syncProductsWithDefaults() {
         category: "Ramos",
         visible: true,
         description: "El clásico ramo de rosas rojas, símbolo por excelencia del amor y la pasión.",
-        image: "assets/images/ramoRosas2.jpg",
+        image: "asb_assets/images/ramoRosas2.jpg",
         meta: "Clásico",
       },
       {
@@ -342,7 +342,7 @@ function syncProductsWithDefaults() {
         category: "Macetas",
         visible: true,
         description: "Divertido y adorable portamaceta con forma de panda.",
-        image: "assets/images/portaPanda.jpg",
+        image: "asb_assets/images/portaPanda.jpg",
         meta: "Cerámica esmaltada",
       },
       {
@@ -354,7 +354,7 @@ function syncProductsWithDefaults() {
         category: "Plantas",
         visible: true,
         description: "Los crisantemos son flores alegres y coloridas que simbolizan optimismo y alegría.",
-        image: "assets/images/plantaCrisas.jpg",
+        image: "asb_assets/images/plantaCrisas.jpg",
         meta: "Lila y amarillo",
       },
     ]
@@ -369,8 +369,8 @@ function syncProductsWithDefaults() {
 // Cerrar sesión
 function logout() {
   if (confirm("¿Estás seguro de que quieres cerrar sesión?")) {
-    localStorage.removeItem("arteplantas-admin")
-    localStorage.removeItem("arteplantas-admin-user")
+    localStorage.removeItem("foodexpress-admin")
+    localStorage.removeItem("foodexpress-admin-user")
 
     // Disparar evento para actualizar la interfaz
     window.dispatchEvent(new Event("adminStatusChanged"))
