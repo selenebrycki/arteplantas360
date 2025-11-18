@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Productos - Arteplantas</title>
+  
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Ícono de pestaña -->
+  <link rel="icon" type="image/x-icon" href="assets/icons/pestaña.png">
+</head>
+<body>
+
+  <!-- Botón menú (hamburguesa) -->
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  
+  <!-- Menú lateral -->
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="icons">
+      <a href="admin-login.html">
+        <img src="assets/icons/usuario.png" alt="Usuario" class="icon">
+      </a>
+      <a href="comprar.html" class="cart-link">
+        <img src="assets/icons/carrito.png" alt="Carrito" class="icon">
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+    <div class="brand">
+      <h1>Arteplantas</h1>
+      <p>FLORERÍA</p>
+    </div>
+  </header>
+
+  <!-- Contenedor de fichas de productos -->
+  <main class="container" id="main-container">
+    <!-- Las fichas se cargarán dinámicamente aquí -->
+  </main>
+
+  <!-- JavaScript principal -->
+  <script src="js/main.js"></script>
+  
+  <!-- JavaScript específico para la página de productos -->
+  <script>
+    // Script para mostrar la ficha correcta según el parámetro en la URL
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('producto');
+      
+      if (productId) {
+        // Ocultar todas las fichas primero
+        const allDetails = document.querySelectorAll('.product-detail');
+        allDetails.forEach(detail => {
+          detail.classList.remove('active');
+        });
+        
+        // Mostrar la ficha solicitada
+        const targetDetail = document.getElementById(`ficha-${productId}`);
+        if (targetDetail) {
+          targetDetail.classList.add('active');
+        }
+      }
+    });
+  </script>
+
+  <!-- Added JavaScript for dynamic product loading -->
+  <script src="js/productos-page.js"></script>
+
+</body>
+</html>

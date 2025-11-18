@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preguntas Frecuentes - Arteplantas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <!-- Updated stylesheet path from assets to css folder -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/x-icon" href="assets/icons/pestaña.png">
+</head>
+<body>
+
+  <!-- Botón menú (hamburguesa) -->
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <!-- Menú lateral -->
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="preguntas-frecuentes.html" class="active">Preguntas frecuentes</a></li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="icons">
+      <a href="admin-login.html" class="admin-login-link" id="admin-login-link">
+        <img src="assets/icons/usuario.png" alt="Usuario" class="icon"></a>
+      <a href="comprar.html" class="cart-link">
+        <img src="assets/icons/carrito.png" alt="Carrito" class="icon">
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+    <div class="brand">
+      <h1>Arteplantas</h1>
+      <p>FLORERÍA</p>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container">
+    <div class="page-header">
+      <h2>Preguntas Frecuentes</h2>
+    </div>
+
+    <section class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Cómo puedo comprar?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Revisá nuestro catálogo de productos, elegí lo que te guste y agregalo al carrito.<br>
+          Cuando termines tu selección, coordinamos tu pedido por WhatsApp para definir los detalles, forma de pago y entrega. <strong>¡Fácil y rápido!</strong></p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Qué formas de pago aceptan?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Podés abonar en:</p>
+          <ul>
+            <li><strong>Efectivo</strong> (en el local o al recibir tu pedido)</li>
+            <li><strong>Transferencia</strong> bancaria</li>
+            <li><strong>Tarjetas de débito y crédito</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Hacen envíos?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>¡Sí! Realizamos envíos con moto mandado en:</p>
+          <ul>
+            <li><strong>Posadas</strong></li>
+            <li><strong>Garupá</strong></li>
+            <li><strong>Candelaria</strong></li>
+          </ul>
+          <p>También podemos coordinar entregas en Villa Cabello, Itaembé Miní, Miguel Lanús, Nemesio Parma y zonas cercanas (consultá el costo según la distancia).</p>
+          <p><em>El envío tiene un costo adicional, que se calcula según la zona.</em></p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Cuáles son los horarios de atención?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>📍 <strong>Lunes a viernes:</strong> 8:00 a 18:00<br>
+          📍 <strong>Sábados:</strong> 8:00 a 13:00</p>
+          <p>Atendemos en horario corrido en nuestro local de <strong>Av. Uruguay 3888, Posadas.</strong></p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Puedo hacer un pedido personalizado?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>¡Claro! Podés pedir arreglos a medida, elegir colores, tipos de flores o combinaciones especiales.<br>
+          Solo contanos tu idea por WhatsApp y te ayudamos a crear <strong>el regalo perfecto.</strong></p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Brindan asesoramiento sobre cuidado de plantas?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>¡Por supuesto! Nos encanta ayudarte a que tus plantas crezcan sanas y felices. Si tenés dudas, podés consultarnos <strong>en el local.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="faq-contact">
+      <p>¿No encontrás tu pregunta? <a href="https://wa.me/5493764107219" target="_blank">¡Escribinos por WhatsApp!</a></p>
+    </div>
+  </main>
+
+  <script>
+    // Control del menú lateral
+    const toggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    toggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic fuera de él
+    document.addEventListener('click', (e) => {
+      if (sidebar.classList.contains('active') && 
+          !sidebar.contains(e.target) && 
+          e.target !== toggle) {
+        sidebar.classList.remove('active');
+      }
+    });
+
+    // FAQ interactivo
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const answer = question.nextElementSibling;
+        const toggleIcon = question.querySelector('.faq-toggle');
+        
+        // Toggle current FAQ
+        const isActive = faqItem.classList.contains('active');
+        
+        // Close all FAQs
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('active');
+          item.querySelector('.faq-answer').classList.remove('active');
+          item.querySelector('.faq-toggle').textContent = '+';
+        });
+        
+        // Open clicked FAQ if it wasn't active
+        if (!isActive) {
+          faqItem.classList.add('active');
+          answer.classList.add('active');
+          toggleIcon.textContent = '−';
+        }
+      });
+    });
+
+    // Actualizar contador del carrito
+    function updateCartCounter() {
+      const cart = JSON.parse(localStorage.getItem('arteplantas-cart')) || [];
+      const totalItems = cart.length;
+      const cartCount = document.getElementById('cart-count');
+      if (cartCount) {
+        cartCount.textContent = totalItems;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCartCounter);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerrar Sesión - Arteplantas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <!-- Updated stylesheet path from assets to css folder -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/pestaña.png">
+</head>
+<!-- Updated background to match header gradient -->
+<body class="admin-login-page" style="background: linear-gradient(to right, #6bc458, #378e66);">
+    <div class="login-container">
+        <div class="login-header">
+            <div class="brand">
+                <h1>Arteplantas</h1>
+                <p>FLORERÍA</p>
+            </div>
+            <h2>Sesión Cerrada</h2>
+        </div>
+
+        <div class="logout-message">
+            <div class="success-icon">✅</div>
+            <p>Has cerrado sesión correctamente.</p>
+            <p>Serás redirigido a la página principal en unos segundos...</p>
+        </div>
+
+        <div class="logout-actions">
+            <a href="index.html" class="btn primary">Ir a la página principal</a>
+            <a href="admin-login.html" class="btn">Iniciar sesión nuevamente</a>
+        </div>
+    </div>
+
+    <script>
+        // Limpiar datos de sesión
+        localStorage.removeItem('arteplantas-admin');
+        localStorage.removeItem('arteplantas-admin-user');
+        
+        // Redirigir automáticamente después de 3 segundos
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 3000);
+    </script>
+
+</body>
+</html>

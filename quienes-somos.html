@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiénes Somos - Arteplantas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <!-- Updated stylesheet path from assets to css folder -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/x-icon" href="assets/icons/pestaña.png">
+</head>
+<body>
+
+  <!-- Botón menú (hamburguesa) -->
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <!-- Menú lateral -->
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="quienes-somos.html" class="active">Quiénes somos</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="icons">
+      <a href="admin-login.html" class="admin-login-link" id="admin-login-link">
+        <img src="assets/icons/usuario.png" alt="Usuario" class="icon"></a>
+      <a href="comprar.html" class="cart-link">
+        <img src="assets/icons/carrito.png" alt="Carrito" class="icon">
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+    <div class="brand">
+      <h1>Arteplantas</h1>
+      <p>FLORERÍA</p>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container">
+    <div class="page-header">
+      <h2>Quiénes Somos</h2>
+    </div>
+
+    <section class="about-content">
+      <div class="about-text">
+        <p class="lead">Arteplantas es mucho más que una florería: es el fruto de un sueño que florece hace más de tres décadas.</p>
+        
+        <p>Desde 1988, <strong>Jorge</strong> —técnico electromecánico de profesión y florista por pasión— decidió transformar su amor por las plantas y la artesanía en un espacio donde la naturaleza y el arte se encuentran. Así nació Arteplantas, primero en pleno centro de Posadas y, desde hace casi 30 años, en su rincón emblemático de avenida Uruguay y Florencio Sánchez.</p>
+        
+        <p>Con el paso del tiempo, este proyecto creció acompañado de constancia, creatividad y mucho amor. Detrás del mostrador, entre aromas y colores, Jorge y su esposa <strong>Rosana</strong> siguen atendiendo cada día con la misma dedicación de siempre, ofreciendo no solo productos, sino también experiencias: el consejo justo para cuidar una planta, el detalle perfecto para regalar, la palabra amable que alegra una jornada.</p>
+        
+        <p>En Arteplantas creemos que <strong>regalar flores es regalar amor</strong> y elegir una planta es apostar por la vida. Por eso, cada arreglo, cada maceta y cada hoja que sale de nuestro local lleva consigo una parte de nuestra historia y nuestra pasión.</p>
+        
+        <p class="mission">Nuestra misión es simple: que cada persona que nos visite encuentre algo que le inspire —ya sea una flor, una idea o una sonrisa—.<br>
+        <em>Porque en este rincón verde de Posadas, el amor por las plantas nunca se marchita.</em></p>
+      </div>
+
+      <div class="contact-info">
+        <div class="contact-card">
+          <h3>📍 Nuestra Ubicación</h3>
+          <p>Avenida Uruguay 3888, Posadas, Misiones</p>
+        </div>
+        
+        <div class="contact-card">
+          <h3>📞 Contacto</h3>
+          <p>3764-642838 | 4433941</p>
+        </div>
+        
+        <div class="contact-card">
+          <h3>📱 Síguenos</h3>
+          <p>Instagram: <a href="https://instagram.com/arteplantas_" target="_blank">@arteplantas_</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Control del menú lateral
+    const toggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    toggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic fuera de él
+    document.addEventListener('click', (e) => {
+      if (sidebar.classList.contains('active') && 
+          !sidebar.contains(e.target) && 
+          e.target !== toggle) {
+        sidebar.classList.remove('active');
+      }
+    });
+
+    // Actualizar contador del carrito
+    function updateCartCounter() {
+      const cart = JSON.parse(localStorage.getItem('arteplantas-cart')) || [];
+      const totalItems = cart.length;
+      const cartCount = document.getElementById('cart-count');
+      if (cartCount) {
+        cartCount.textContent = totalItems;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCartCounter);
+  </script>
+
+</body>
+</html>

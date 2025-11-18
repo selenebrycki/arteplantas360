@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Arteplantas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/pestaña.png">
+</head>
+<body class="admin-login-page" style="background: linear-gradient(to right, #6bc458, #378e66);">
+    <div class="login-container">
+        <div class="login-header">
+            <div class="brand">
+                <h1>Arteplantas</h1>
+                <p>FLORERÍA - Administración</p>
+            </div>
+        </div>
+
+        <form id="login-form" class="login-form">
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <button type="submit" class="btn primary">Ingresar</button>
+            
+            <!-- Added info box with test credentials -->
+            <div class="login-info">
+                <strong>Credenciales de prueba:</strong><br>
+                Usuario: <code>admin</code><br>
+                Contraseña: <code>arteplantas1988</code>
+            </div>
+        </form>
+
+        <a href="index.html" class="back-to-store">← Volver a la tienda</a>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Fallback a autenticación local para demostración
+            if (username === 'admin' && password === 'arteplantas1988') {
+                localStorage.setItem('arteplantas-admin', 'true');
+                localStorage.setItem('arteplantas-admin-user', username);
+                window.location.href = 'admin-products.html';
+            } else {
+                alert('Usuario o contraseña incorrectos\n\nUsa:\nUsuario: admin\nContraseña: arteplantas1988');
+            }
+        });
+    </script>
+</body>
+</html>

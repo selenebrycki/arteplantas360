@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Completar Compra - Arteplantas</title>
+  
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Ícono de pestaña -->
+  <link rel="icon" type="image/x-icon" href="assets/icons/pestaña.png">
+</head>
+<body>
+
+  <!-- Botón menú (hamburguesa) -->
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <!-- Menú lateral -->
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="icons">
+      <a href="admin-login.html">
+        <img src="assets/icons/usuario.png" alt="Usuario" class="icon">
+      </a>
+      <a href="comprar.html" class="cart-link">
+        <img src="assets/icons/carrito.png" alt="Carrito" class="icon">
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+    <div class="brand">
+      <h1>Arteplantas</h1>
+      <p>FLORERÍA</p>
+    </div>
+  </header>
+
+  <!-- Contenido principal - Formulario de compra -->
+  <main class="container">
+    <div class="intro">
+      <h2>Completar Compra</h2>
+      <p>Por favor completa tus datos para finalizar tu pedido</p>
+    </div>
+    
+    <form id="checkout-form" class="checkout-container">
+      <!-- Información del cliente -->
+      <div class="customer-info">
+        <h3 class="section-title">Datos del Cliente</h3>
+        
+        <div class="form-group">
+          <label for="name">Nombre completo *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="whatsapp">Número de WhatsApp *</label>
+          <input type="tel" id="whatsapp" name="whatsapp" required placeholder="Ej: +54 9 3764107219">
+        </div>
+        
+        <h3 class="section-title">Servicio</h3>
+        
+        <div class="form-group">
+          <div class="service-option">
+            <input type="radio" id="pickup" name="service" value="retiro" checked>
+            <label for="pickup">Retiro en el local</label>
+          </div>
+          
+          <div class="service-option">
+            <input type="radio" id="delivery" name="service" value="envio">
+            <label for="delivery">Envío a domicilio</label>
+          </div>
+          
+          <div id="address-field" class="address-field">
+            <label for="address">Dirección de envío *</label>
+            <textarea id="address" name="address" rows="3" placeholder="Ingresa tu dirección completa"></textarea>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="notes">Información adicional</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Notas especiales para tu pedido"></textarea>
+        </div>
+      </div>
+      
+      <!-- Resumen del pedido -->
+      <div class="order-summary">
+        <h3 class="section-title">Resumen del Pedido</h3>
+        
+        <div id="cart-items">
+          <!-- Los elementos del carrito se cargarán dinámicamente -->
+          <div class="empty-cart-message" id="empty-cart-message">No hay productos en el carrito</div>
+        </div>
+        
+        <div class="cart-total">
+          Total: <span id="total-amount">$0</span>
+        </div>
+        
+        <button type="button" onclick="clearCart()" class="clear-cart-btn" id="clear-cart-btn">
+          Vaciar carrito
+        </button>
+        
+        <button type="submit" class="submit-order" id="submit-order">
+          <img src="assets/icons/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+          Realizar pedido por WhatsApp
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <!-- JavaScript principal -->
+  <script src="js/main.js"></script>
+  
+  <!-- JavaScript específico para la página de compra -->
+  <script>
+    // Mostrar/ocultar campo de dirección según servicio seleccionado
+    const deliveryOption = document.getElementById('delivery');
+    const pickupOption = document.getElementById('pickup');
+    const addressField = document.getElementById('address-field');
+    const addressInput = document.getElementById('address');
+    
+    deliveryOption.addEventListener('change', function() {
+      if(this.checked) {
+        addressField.style.display = 'block';
+        addressInput.setAttribute('required', 'required');
+      }
+    });
+    
+    pickupOption.addEventListener('change', function() {
+      if(this.checked) {
+        addressField.style.display = 'none';
+        addressInput.removeAttribute('required');
+      }
+    });
+    
+    // Cargar carrito desde localStorage
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem('arteplantas-cart')) || [];
+      const cartItems = document.getElementById('cart-items');
+      const totalAmount = document.getElementById('total-amount');
+      const emptyCartMessage = document.getElementById('empty-cart-message');
+      const clearCartBtn = document.getElementById('clear-cart-btn');
+      const submitOrder = document.getElementById('submit-order');
+      
+      // Limpiar carrito
+      cartItems.innerHTML = '';
+      
+      let total = 0;
+      
+      // Agregar items al carrito
+      if (cart.length === 0) {
+        emptyCartMessage.style.display = 'block';
+        clearCartBtn.style.display = 'none';
+        submitOrder.disabled = true;
+      } else {
+        emptyCartMessage.style.display = 'none';
+        clearCartBtn.style.display = 'block';
+        submitOrder.disabled = false;
+        
+        cart.forEach(item => {
+          const itemElement = document.createElement('div');
+          itemElement.className = 'cart-item';
+          const quantity = item.quantity || 1;
+          const subtotal = item.price * quantity;
+          
+          itemElement.innerHTML = `
+            <span class="item-name">${item.name}</span>
+            <span class="item-quantity">x${quantity}</span>
+            <span class="item-price">${formatPrice(subtotal)}</span>
+          `;
+          cartItems.appendChild(itemElement);
+          
+          total += subtotal;
+        });
+      }
+      
+      // Actualizar total
+      totalAmount.textContent = formatPrice(total);
+    }
+    
+    // Enviar pedido por WhatsApp
+    document.getElementById('checkout-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const whatsapp = document.getElementById('whatsapp').value;
+      const service = document.querySelector('input[name="service"]:checked').value;
+      const address = document.getElementById('address').value;
+      const notes = document.getElementById('notes').value;
+      
+      const cart = JSON.parse(localStorage.getItem('arteplantas-cart')) || [];
+      
+      if (cart.length === 0) {
+        alert('No hay productos en el carrito');
+        return;
+      }
+      
+      // Construir mensaje para WhatsApp
+      let message = `¡Hola! Quiero hacer un pedido:\n\n`;
+      message += `*Cliente:* ${name}\n`;
+      message += `*WhatsApp:* ${whatsapp}\n`;
+      message += `*Servicio:* ${service === 'retiro' ? 'Retiro en local' : 'Envío a domicilio'}\n`;
+      
+      if (service === 'envio' && address) {
+        message += `*Dirección:* ${address}\n`;
+      }
+      
+      message += `\n*Pedido:*\n`;
+      
+      let total = 0;
+      cart.forEach(item => {
+        const quantity = item.quantity || 1;
+        const subtotal = item.price * quantity;
+        message += `- ${item.name} x${quantity}: ${formatPrice(subtotal)}\n`;
+        total += subtotal;
+      });
+      
+      message += `\n*Total:* ${formatPrice(total)}\n`;
+      
+      if (notes) {
+        message += `\n*Notas:* ${notes}\n`;
+      }
+      
+      // Número de WhatsApp de la tienda
+      const phoneNumber = '5493764107219';
+      
+      // Codificar mensaje para URL
+      const encodedMessage = encodeURIComponent(message);
+      
+      // Redirigir a WhatsApp
+      window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+    });
+    
+    // Cargar carrito al iniciar la página
+    document.addEventListener('DOMContentLoaded', loadCart);
+  </script>
+
+</body>
+</html>

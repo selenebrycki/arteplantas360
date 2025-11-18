@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arteplantas — Florería</title>
+
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Ícono de pestaña -->
+  <link rel="icon" type="image/x-icon" href="assets/icons/pestaña.png">
+
+  <!-- Owl Carousel CSS para carousel automático -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+  <!-- jQuery requerido para Owl Carousel -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Owl Carousel JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+</head>
+<body>
+
+  <!-- Botón menú (hamburguesa) - Abre el menú lateral -->
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <!-- Menú lateral - Navegación principal del sitio -->
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <!-- Enlace de administración (solo visible para admins) -->
+        <li id="admin-menu-item" style="display: none;">
+          <a href="admin-products.html" class="admin-link">Gestión de Productos</a>
+          <a href="admin-logout.html" class="logout-link">Cerrar Sesión</a>
+        </li> 
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- Encabezado - Logo y accesos rápidos -->
+  <header class="header">
+    <div class="icons">
+      <!-- Badge de administrador (solo visible cuando está logueado) -->
+      <span class="admin-badge" id="admin-badge">Admin</span>
+      
+      <!-- Icono de usuario - Redirige al login de admin -->
+      <a href="admin-login.html" class="admin-login-link" id="admin-login-link">
+        <img src="assets/icons/usuario.png" alt="Usuario" class="icon">
+      </a>
+      
+      <!-- Icono de carrito con contador de productos -->
+      <a href="comprar.html" class="cart-link">
+        <img src="assets/icons/carrito.png" alt="Carrito" class="icon">
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+    <div class="brand">
+      <h1>Arteplantas</h1>
+      <p>FLORERÍA</p>
+    </div>
+  </header>
+
+  <!-- Carousel de Owl con productos dinámicos de la BD -->
+  <div class="owl-carousel" id="gallery-carousel">
+    <!-- Las imágenes se cargarán dinámicamente desde la BD -->
+  </div>
+
+  <!-- Contenido principal -->
+  <main class="container">
+    
+    <!-- Introducción a los productos -->
+    <div class="intro">
+      <h2>Nuestros Productos</h2>
+      <p>Descubre la belleza de nuestras plantas y flores seleccionadas especialmente para vos.</p>
+    </div>
+
+    <!-- Sección de productos - Los productos se cargan dinámicamente -->
+    <div id="productos">
+      <div class="grid" id="products-grid">
+        <!-- Los productos se cargarán aquí mediante JavaScript -->
+      </div>
+    </div>
+
+    <!-- Información de la tienda - Ubicación y servicios -->
+    <section class="store-info">
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Nuestra Esquina</h3>
+          <p>Te esperamos en nuestro local para que vivas la experiencia de Arteplantas: un espacio lleno de color, vida y amor por la naturaleza.</p>
+          <div class="info-details">
+            <p>📍 Av. Uruguay 3888, Posadas, Misiones</p>
+            <p>🕒 Lunes a viernes: 8:00 a 18:00 | Sábados: 8:00 a 13:00</p>
+            <p>📞 3764-642838 | ☎ 4433941</p>
+          </div>
+        </div>
+        
+        <div class="info-card">
+          <h3>Calidad y dedicación desde hace más de 30 años</h3>
+          <div class="info-details">
+            <p>✓ Flores frescas</p>
+            <p>✓ Entregas a domicilio en Posadas, Garupá y Candelaria</p>
+            <p>✓ Asesoramiento personalizado</p>
+            <p>✓ Precios justos y atención con amor</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- JavaScript principal -->
+  <script src="js/main.js"></script>
+
+  <!-- Script para inicializar Owl Carousel -->
+  <script>
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: { items: 1 },      // celulares
+          768: { items: 2 },    // tablets
+          1024: { items: 3 }    // pantallas grandes
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
